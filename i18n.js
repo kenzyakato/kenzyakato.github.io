@@ -116,7 +116,7 @@ window.I18N = {
         "v": { roles: ["Scene production", "Timeline", "Recording", "Rendering", "Lighting"] },
         "kiss-kitsune": { roles: ["Lighting control system", "Scene production", "Timeline", "Gimmicks", "Secondary motion (swaying parts) and character system", "Recording", "Rendering"] },
         "namida": { roles: ["Scene production", "Development of a Timeline production support tool", "Timeline production", "Creation of staging-control scripts", "Gimmicks", "Secondary motion (swaying parts) and character system", "Recording", "Rendering"] },
-        "twinkle-4-you": { roles: ["M1 shooting-star effect", "M11 costume glow", "M12 effects", "MC entrance and exit effects", "Synchronization with the live show's progression"] },
+        "twinkle-4-you": { credit: "hololive 5th Generation", roles: ["M1 shooting-star effect", "M11 costume glow", "M12 effects", "MC entrance and exit effects", "Synchronization with the live show's progression"] },
         "himehina-7th": { roles: ["Comment display system", "Recording"] },
         "lovechan-metamorphose": { roles: ["Motion-capture studio operation", "Camera work for M2 and M3"] },
         "kzn-play-with-me": { roles: ["Effects for all songs"] }
@@ -165,7 +165,7 @@ window.I18N = {
         "v": { roles: ["场景制作", "Timeline", "收录", "渲染", "灯光"] },
         "kiss-kitsune": { roles: ["灯光控制系统", "场景制作", "Timeline", "机关", "摇动物与角色系统", "收录", "渲染"] },
         "namida": { roles: ["场景制作", "Timeline 制作支持工具的开发", "Timeline 制作", "演出控制脚本的制作", "机关", "摇动物与角色系统", "收录", "渲染"] },
-        "twinkle-4-you": { roles: ["M1 流星特效", "M11 服装发光", "M12 特效", "MC 出入场特效", "与现场进程联动"] },
+        "twinkle-4-you": { credit: "hololive 5期生（ねぽらぼ）", roles: ["M1 流星特效", "M11 服装发光", "M12 特效", "MC 出入场特效", "与现场进程联动"] },
         "himehina-7th": { roles: ["评论显示系统", "收录"] },
         "lovechan-metamorphose": { roles: ["动捕棚操作", "M2、M3 运镜"] },
         "kzn-play-with-me": { roles: ["全曲特效"] }
