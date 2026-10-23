@@ -9,6 +9,7 @@ window.I18N = {
 
   ui: {
     ja: {
+      logoAlt: "犬者カト ロゴ（KENZYA KATO）",
       sep: "｜", metaDesc: "KenzyaKato（犬者カト）のポートフォリオ。Unity・VTuber 技術制作。",
       skip: "本文へスキップ", homeAria: "KenzyaKato ホーム", menuAria: "メニュー", navAria: "メイン",
       navHome: "ホーム", navRecent: "最近の制作", navTech: "技術ケース", navWorks: "参加作品・制作実績", navAbout: "プロフィール・連絡",
@@ -36,6 +37,7 @@ window.I18N = {
       nfTitle: "ページが見つかりません", nfLead: "指定されたページは見つかりませんでした。", nfBack: "ホームへ戻る"
     },
     en: {
+      logoAlt: "KenzyaKato logo (犬者カト / KENZYA KATO)",
       sep: " | ", metaDesc: "Portfolio of KenzyaKato (犬者カト). Unity / VTuber technical production.",
       skip: "Skip to main content", homeAria: "KenzyaKato home", menuAria: "Menu", navAria: "Main",
       navHome: "Home", navRecent: "Recent work", navTech: "Technical cases", navWorks: "Participated works", navAbout: "Profile & contact",
@@ -63,6 +65,7 @@ window.I18N = {
       nfTitle: "Page not found", nfLead: "The page you requested could not be found.", nfBack: "Back to home"
     },
     "zh-CN": {
+      logoAlt: "犬者カト 标志（KENZYA KATO）",
       sep: "｜", metaDesc: "KenzyaKato（犬者カト）的作品集。Unity・VTuber 技术制作。",
       skip: "跳到正文", homeAria: "KenzyaKato 首页", menuAria: "菜单", navAria: "主导航",
       navHome: "首页", navRecent: "近期制作", navTech: "技术案例", navWorks: "参与作品与制作实绩", navAbout: "简介与联系",

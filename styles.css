@@ -57,6 +57,12 @@ html[lang="en"] :is(.h1,.h2,.chan h2,.tc-name,.trow h2,.sc-info h3){hyphens:auto
 .hdr-in{max-width:var(--max);margin:0 auto;padding:0 var(--pad);height:var(--hdr);display:flex;align-items:center;gap:24px}
 .brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .brand-mark{width:14px;height:14px;background:var(--red);box-shadow:4px 4px 0 var(--white)}
+.brand-logo{flex-shrink:0;display:block;height:44px;aspect-ratio:1381/785;background:var(--white);padding:3px 4px;box-shadow:3px 3px 0 var(--red)}
+.brand-logo img{display:block;width:100%;height:100%;object-fit:contain}
+.hero-logo{width:min(100%,380px);justify-self:center;margin-top:18px;background:var(--white);padding:10px 14px;box-shadow:4px 4px 0 var(--red)}
+.hero-logo img{display:block;width:100%;height:auto;aspect-ratio:1381/785;object-fit:contain}
+@media (max-width:860px){.hero-logo{width:min(70%,280px)}}
+@media (max-width:480px){.brand-logo{height:36px}.brand-txt small{display:none}.menu-btn{flex-shrink:0}}
 .brand-txt{display:flex;flex-direction:column;line-height:1.1}
 .brand-txt b{font:600 14px/1 var(--f-mono);letter-spacing:.18em}
 .brand-txt small{font-size:11px;color:var(--mute);letter-spacing:.1em;margin-top:4px}
