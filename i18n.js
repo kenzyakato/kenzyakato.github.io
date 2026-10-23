@@ -9,6 +9,7 @@ window.I18N = {
 
   ui: {
     ja: {
+      mocapK: "シーンについて", mocapV: "制作チームが作成したシーンを、モーションキャプチャ収録システムで使用できるようセットアップしました。",
       sep: "｜", metaDesc: "KenzyaKato（犬者カト）のポートフォリオ。Unity・VTuber 技術制作。",
       skip: "本文へスキップ", homeAria: "KenzyaKato ホーム", menuAria: "メニュー", navAria: "メイン",
       navHome: "ホーム", navRecent: "最近の制作", navTech: "技術ケース", navWorks: "参加作品・制作実績", navAbout: "プロフィール・連絡",
@@ -36,6 +37,7 @@ window.I18N = {
       nfTitle: "ページが見つかりません", nfLead: "指定されたページは見つかりませんでした。", nfBack: "ホームへ戻る"
     },
     en: {
+      mocapK: "About the scenes", mocapV: "Set up scenes supplied by the production team for use with the motion-capture recording system.",
       sep: " | ", metaDesc: "Portfolio of KenzyaKato (犬者カト). Unity / VTuber technical production.",
       skip: "Skip to main content", homeAria: "KenzyaKato home", menuAria: "Menu", navAria: "Main",
       navHome: "Home", navRecent: "Recent work", navTech: "Technical cases", navWorks: "Participated works", navAbout: "Profile & contact",
@@ -63,6 +65,7 @@ window.I18N = {
       nfTitle: "Page not found", nfLead: "The page you requested could not be found.", nfBack: "Back to home"
     },
     "zh-CN": {
+      mocapK: "关于场景", mocapV: "负责将制作团队已完成的场景配置到动捕收录系统中使用。",
       sep: "｜", metaDesc: "KenzyaKato（犬者カト）的作品集。Unity・VTuber 技术制作。",
       skip: "跳到正文", homeAria: "KenzyaKato 首页", menuAria: "菜单", navAria: "主导航",
       navHome: "首页", navRecent: "近期制作", navTech: "技术案例", navWorks: "参与作品与制作实绩", navAbout: "简介与联系",
@@ -98,24 +101,24 @@ window.I18N = {
         role: "Unity / VTuber technical production",
         tagline: "Expression, implemented.",
         capability: "I work on Unity-based production support, client and operation UIs, automation of repetitive tasks, and AI-assisted development.",
-        lead: "Centered on Unity, I handle technical production for VTuber music videos and live footage, covering scenes, Timeline, gimmicks, lighting, effects, recording and rendering. I am also involved in developing tools that support production.",
+        lead: "Centered on Unity, I handle technical production for VTuber music videos and live footage, covering motion-capture recording setup, Timeline, gimmicks, lighting, effects, recording and rendering. I am also involved in developing tools that support production.",
         areas: ["Unity development", "VTuber content", "3DCG", "VR"],
         languages: ["Chinese", "Japanese", "English"]
       },
       tags: {
-        scene: "Scene", timeline: "Timeline", gimmick: "Gimmicks", light: "Lighting", vfx: "Effects", character: "Character",
+        scene: "Recording setup", timeline: "Timeline", gimmick: "Gimmicks", light: "Lighting", vfx: "Effects", character: "Character",
         system: "Systems & scripts", tool: "Tools", record: "Recording", render: "Rendering", camera: "Camera work",
         mocap: "Motion capture", model: "Modeling"
       },
       works: {
         "omae-no-matomo": { published: "April 30, 2026",
           roles: ["Camera work production", "Timeline production", "Rendering", "Character facial-expression setup", "Operation of facial expressions for some characters", "Participation in recording"] },
-        "lady-crazy": { roles: ["Unity scene production", "Development of a Timeline production support tool", "Timeline production", "Creation of staging-control scripts", "Chain and floor-reflection gimmicks", "Adjustment of secondary motion (swaying parts) and the Unity character system", "Recording", "Rendering"] },
-        "bubblin": { roles: ["Unity scene production", "Heart animation", "Falling-blade gimmick", "Timeline", "Development of production support tools", "Recording", "Improvements to the rendering setup", "Lighting"] },
-        "bubblin-teaser": { roles: ["Scene production", "Timeline", "Recording", "Rendering", "Lighting", "Character", "Prop modeling", "VFX"] },
-        "v": { roles: ["Scene production", "Timeline", "Recording", "Rendering", "Lighting"] },
-        "kiss-kitsune": { roles: ["Lighting control system", "Scene production", "Timeline", "Gimmicks", "Secondary motion (swaying parts) and character system", "Recording", "Rendering"] },
-        "namida": { roles: ["Scene production", "Development of a Timeline production support tool", "Timeline production", "Creation of staging-control scripts", "Gimmicks", "Secondary motion (swaying parts) and character system", "Recording", "Rendering"] },
+        "lady-crazy": { roles: ["Motion-capture recording setup", "Development of a Timeline production support tool", "Timeline production", "Creation of staging-control scripts", "Chain and floor-reflection gimmicks", "Adjustment of secondary motion (swaying parts) and the Unity character system", "Recording", "Rendering"] },
+        "bubblin": { roles: ["Motion-capture recording setup", "Heart animation", "Falling-blade gimmick", "Timeline", "Development of production support tools", "Recording", "Improvements to the rendering setup", "Lighting"] },
+        "bubblin-teaser": { roles: ["Motion-capture recording setup", "Timeline", "Recording", "Rendering", "Lighting", "Character", "Prop modeling", "VFX"] },
+        "v": { roles: ["Motion-capture recording setup", "Timeline", "Recording", "Rendering", "Lighting"] },
+        "kiss-kitsune": { roles: ["Lighting control system", "Motion-capture recording setup", "Timeline", "Gimmicks", "Secondary motion (swaying parts) and character system", "Recording", "Rendering"] },
+        "namida": { roles: ["Motion-capture recording setup", "Development of a Timeline production support tool", "Timeline production", "Creation of staging-control scripts", "Gimmicks", "Secondary motion (swaying parts) and character system", "Recording", "Rendering"] },
         "twinkle-4-you": { credit: "hololive 5th Generation", roles: ["M1 shooting-star effect", "M11 costume glow", "M12 effects", "MC entrance and exit effects", "Synchronization with the live show's progression"] },
         "himehina-7th": { roles: ["Comment display system", "Recording"] },
         "lovechan-metamorphose": { roles: ["Motion-capture studio operation", "Camera work for M2 and M3"] },
@@ -147,24 +150,24 @@ window.I18N = {
         role: "Unity・VTuber 技术制作",
         tagline: "将表现，付诸实现。",
         capability: "致力于基于 Unity 的制作支持、客户端与操作 UI、重复作业的自动化，以及运用 AI 的开发。",
-        lead: "以 Unity 为核心，负责 VTuber MV 与直播影像的技术制作，涵盖场景、Timeline、机关、灯光、特效、收录与渲染。同时参与支持制作的工具开发。",
+        lead: "以 Unity 为核心，负责 VTuber MV 与直播影像的技术制作，涵盖动捕收录环境配置、Timeline、机关、灯光、特效、收录与渲染。同时参与支持制作的工具开发。",
         areas: ["Unity 开发", "VTuber 内容", "3DCG", "VR"],
         languages: ["中文", "日语", "英语"]
       },
       tags: {
-        scene: "场景", timeline: "Timeline", gimmick: "机关", light: "灯光", vfx: "特效", character: "角色",
+        scene: "收录环境配置", timeline: "Timeline", gimmick: "机关", light: "灯光", vfx: "特效", character: "角色",
         system: "系统与脚本", tool: "工具", record: "收录", render: "渲染", camera: "运镜",
         mocap: "动作捕捉", model: "建模"
       },
       works: {
         "omae-no-matomo": { published: "2026年4月30日",
           roles: ["运镜制作", "Timeline 制作", "渲染", "角色表情设置", "部分角色的表情操作", "参与收录"] },
-        "lady-crazy": { roles: ["Unity 场景制作", "Timeline 制作支持工具的开发", "Timeline 制作", "演出控制脚本的制作", "锁链与地面反射机关", "摇动物与 Unity 角色系统的调整", "收录", "渲染"] },
-        "bubblin": { roles: ["Unity 场景制作", "爱心动画", "落刀机关", "Timeline", "制作支持工具的开发", "收录", "渲染机制改善", "灯光"] },
-        "bubblin-teaser": { roles: ["场景制作", "Timeline", "收录", "渲染", "灯光", "角色", "小物建模", "VFX"] },
-        "v": { roles: ["场景制作", "Timeline", "收录", "渲染", "灯光"] },
-        "kiss-kitsune": { roles: ["灯光控制系统", "场景制作", "Timeline", "机关", "摇动物与角色系统", "收录", "渲染"] },
-        "namida": { roles: ["场景制作", "Timeline 制作支持工具的开发", "Timeline 制作", "演出控制脚本的制作", "机关", "摇动物与角色系统", "收录", "渲染"] },
+        "lady-crazy": { roles: ["动捕收录环境配置", "Timeline 制作支持工具的开发", "Timeline 制作", "演出控制脚本的制作", "锁链与地面反射机关", "摇动物与 Unity 角色系统的调整", "收录", "渲染"] },
+        "bubblin": { roles: ["动捕收录环境配置", "爱心动画", "落刀机关", "Timeline", "制作支持工具的开发", "收录", "渲染机制改善", "灯光"] },
+        "bubblin-teaser": { roles: ["动捕收录环境配置", "Timeline", "收录", "渲染", "灯光", "角色", "小物建模", "VFX"] },
+        "v": { roles: ["动捕收录环境配置", "Timeline", "收录", "渲染", "灯光"] },
+        "kiss-kitsune": { roles: ["灯光控制系统", "动捕收录环境配置", "Timeline", "机关", "摇动物与角色系统", "收录", "渲染"] },
+        "namida": { roles: ["动捕收录环境配置", "Timeline 制作支持工具的开发", "Timeline 制作", "演出控制脚本的制作", "机关", "摇动物与角色系统", "收录", "渲染"] },
         "twinkle-4-you": { credit: "hololive 5期生（ねぽらぼ）", roles: ["M1 流星特效", "M11 服装发光", "M12 特效", "MC 出入场特效", "与现场进程联动"] },
         "himehina-7th": { roles: ["评论显示系统", "收录"] },
         "lovechan-metamorphose": { roles: ["动捕棚操作", "M2、M3 运镜"] },

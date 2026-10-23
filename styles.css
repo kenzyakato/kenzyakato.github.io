@@ -405,3 +405,43 @@ html[data-motion="reduce"] *,html[data-motion="reduce"] *::before,html[data-moti
 html[data-motion="reduce"] .scan::after{display:none}
 html[data-motion="reduce"] .gl::before,html[data-motion="reduce"] .gl::after{display:none}
 html[data-motion="reduce"] .ava-frame .sl{display:none}
+
+/* concept illustrations */
+.ca{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.ca-art{border:1px solid var(--line);background:var(--bg2);position:relative;overflow:hidden}
+.ca-art::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px);pointer-events:none}
+.ca-art svg{display:block;width:100%;height:auto;aspect-ratio:16/9}
+.ca-cap{display:flex;flex-direction:column;gap:2px;font:500 11px/1.5 var(--f-jp);color:var(--mute);letter-spacing:.02em}
+.ca-cap [lang="zh-CN"]{font-family:"Noto Sans SC",var(--f-jp)}
+.ca-cap [lang="en"]{font-family:var(--f-mono);font-size:10.5px}
+.ca-shift{animation:caShift 7s steps(1,end) infinite}
+.ca-pulse{animation:caPulse 4.5s ease-in-out infinite}
+@keyframes caShift{0%,88%,100%{transform:none}90%{transform:translateX(-3px)}93%{transform:translateX(2px)}}
+@keyframes caPulse{0%,100%{opacity:1}50%{opacity:.55}}
+.rc-card:hover .ca-art,.trow-ca:hover .ca-art{border-color:var(--red)}
+.ca-thumb{position:relative}
+
+/* tech list: 6 rows with art column */
+.trow-ca{grid-template-columns:80px minmax(0,1fr) minmax(0,300px)}
+.trow-h-long{font:400 clamp(24px,2.6vw,34px)/1.25 var(--f-disp)!important;letter-spacing:.01em!important}
+html[lang="zh-CN"] .trow-h-long{font-family:"Noto Sans SC",sans-serif!important;font-weight:900!important}
+.x-badge{display:inline-block;margin-bottom:12px;font:500 11px/1 var(--f-mono);letter-spacing:.08em;color:var(--red);border:1px solid var(--red);padding:5px 8px}
+@media (max-width:860px){.trow-ca{grid-template-columns:1fr}.trow-ca .ca{max-width:420px}}
+
+/* tech detail: art in the second column */
+.tech-hero{align-items:start}
+.tech-hero .ca{align-self:end}
+
+/* reduced motion: global rule in styles.css already stops animations; keep SVG static */
+html[data-motion="reduce"] .ca-shift,html[data-motion="reduce"] .ca-pulse{animation:none!important;transform:none!important;opacity:1!important}
+
+/* zh-CN headings only: KK Heading SC Black (renamed OFL subset of Noto Serif SC Black; license fonts/OFL-NotoSerif.txt). Loaded only when a zh heading uses it. */
+@font-face{font-family:"KK Heading SC Black";src:url("fonts/kk-heading-sc-black.woff2") format("woff2");font-weight:900;font-style:normal;font-display:swap}
+html[lang="zh-CN"] :is(h1,h2,h3):not([lang="ja"]){font-family:"KK Heading SC Black","Noto Sans SC",sans-serif;font-weight:900}
+html[lang="zh-CN"] .trow-h-long:not([lang="ja"]){font-family:"KK Heading SC Black","Noto Sans SC",sans-serif!important;font-weight:900!important}
+html[lang="zh-CN"] :is(h1,h2,h3) [lang="ja"]{font-family:"Noto Sans SC","Zen Kaku Gothic New",sans-serif}
+
+
+/* zh-CN hero: size from the text column width so each of the two lines stays on one line */
+html[lang="zh-CN"] .hero h1{font-size:clamp(40px,16cqi,112px)}
+html[lang="zh-CN"] .hero h1 .ln{white-space:nowrap}

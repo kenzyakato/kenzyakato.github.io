@@ -99,7 +99,74 @@
       <span class="vnote">${esc(T.videoNote)}</span>
     </button>`;
   const glH1 = (text, extra = "") => `<h1 class="h1" tabindex="-1"${jaAttr(text)}${extra}><span class="sr-only">${esc(text)}</span><span class="gl" data-text="${esc(text)}" aria-hidden="true">${esc(text)}</span></h1>`;
+  const MOCAP_SETUP_IDS = new Set(["lady-crazy", "bubblin", "bubblin-teaser", "v", "kiss-kitsune", "namida"]);
   const plate = name => `<div class="rc-plate" aria-hidden="true"><span>${esc(name)}</span></div>`;
+  /* PRIVATE PREVIEW — 原創の概念イメージ（架空。実際の画面・構成・データではない） */
+  const M = 'font-family="IBM Plex Mono,monospace"';
+  const demoTag = `<rect x="262" y="10" width="48" height="16" fill="#e0201b"/><text x="286" y="22" ${M} font-size="9" font-weight="600" fill="#0b0b0c" text-anchor="middle">DEMO</text>`;
+  const arrow = (x, y) => `<g class="ca-pulse"><line x1="${x}" y1="${y}" x2="${x + 22}" y2="${y}" stroke="#e0201b" stroke-width="2"/><path d="M${x + 22} ${y - 5}L${x + 30} ${y}L${x + 22} ${y + 5}Z" fill="#e0201b"/></g>`;
+  const SVG = {
+    "timeline-automation": `
+      ${[60, 80, 100, 120, 140, 180, 200, 220, 240, 260, 280, 300].map(x => `<line x1="${x}" y1="36" x2="${x}" y2="150" stroke="#1f1f24"/>`).join("")}
+      ${["A", "B", "C"].map((l, k) => `<text x="16" y="${62 + k * 36}" ${M} font-size="10" fill="#93939a">${l}</text>`).join("")}
+      <rect x="44" y="46" width="26" height="18" fill="#3a3a41"/><rect x="78" y="52" width="40" height="18" fill="#3a3a41"/><rect x="122" y="44" width="18" height="18" fill="#3a3a41"/>
+      <rect x="52" y="88" width="34" height="18" fill="#5a5a62"/><rect x="96" y="82" width="22" height="18" fill="#5a5a62"/><rect x="108" y="94" width="30" height="18" fill="#5a5a62" opacity=".7"/>
+      <rect x="40" y="126" width="20" height="18" fill="#3a3a41"/><rect x="70" y="120" width="46" height="18" fill="#3a3a41"/><rect x="124" y="130" width="16" height="14" fill="#3a3a41"/>
+      ${arrow(146, 95)}
+      <g class="ca-shift"><rect x="184" y="50" width="36" height="18" fill="#e0201b"/><rect x="224" y="50" width="36" height="18" fill="#e0201b"/><rect x="264" y="50" width="36" height="18" fill="#e0201b"/></g>
+      <rect x="184" y="86" width="56" height="18" fill="#ecebe8"/><rect x="244" y="86" width="56" height="18" fill="#ecebe8"/>
+      <rect x="184" y="122" width="116" height="18" fill="#5a5a62"/>
+      <text x="16" y="22" ${M} font-size="9" fill="#93939a">FICTIONAL TIMELINE</text>`,
+    "focus-assist": `
+      <defs><filter id="ca-blur-fa"><feGaussianBlur stdDeviation="3.2"/></filter></defs>
+      <circle cx="70" cy="104" r="24" fill="#5a5a62" filter="url(#ca-blur-fa)"/>
+      <path d="M248 132L272 84L296 132Z" fill="#3a3a41" filter="url(#ca-blur-fa)"/>
+      <rect x="136" y="74" width="48" height="48" fill="#ecebe8"/>
+      <g class="ca-pulse" stroke="#e0201b" stroke-width="2.5" fill="none">
+        <path d="M120 70V58H132"/><path d="M188 58H200V70"/><path d="M200 126V138H188"/><path d="M132 138H120V126"/>
+      </g>
+      <line x1="160" y1="150" x2="160" y2="162" stroke="#e0201b"/><text x="160" y="172" ${M} font-size="9" fill="#93939a" text-anchor="middle">DEMO SUBJECT</text>
+      <text x="16" y="22" ${M} font-size="9" fill="#93939a">FICTIONAL SHOT</text>`,
+    "recording-data-organize": `
+      <g fill="#1b1b20" stroke="#5a5a62">
+        <rect x="30" y="60" width="46" height="32" transform="rotate(-10 53 76)"/>
+        <rect x="64" y="86" width="46" height="32" transform="rotate(8 87 102)"/>
+        <rect x="36" y="112" width="46" height="32" transform="rotate(-4 59 128)"/>
+        <rect x="82" y="50" width="46" height="32" transform="rotate(14 105 66)"/>
+      </g>
+      ${arrow(140, 100)}
+      ${[0, 1, 2].map(k => `<g transform="translate(${182 + k * 44} 40)"><text x="18" y="8" ${M} font-size="8" fill="#93939a" text-anchor="middle">G${k + 1}</text><line x1="0" y1="14" x2="36" y2="14" stroke="${k === 0 ? "#e0201b" : "#5a5a62"}" stroke-width="2"/>${[0, 1, 2].slice(0, 3 - (k === 2 ? 1 : 0)).map(n => `<rect x="0" y="${22 + n * 30}" width="36" height="24" fill="${k === 0 ? "#ecebe8" : "#3a3a41"}"/><rect x="5" y="${30 + n * 30}" width="18" height="3" fill="${k === 0 ? "#0b0b0c" : "#5a5a62"}"/>`).join("")}</g>`).join("")}
+      <text x="16" y="22" ${M} font-size="9" fill="#93939a">FICTIONAL CARDS</text>`,
+    "participatory-live-system": `
+      ${[[24, 44, "#ecebe8"], [54, 84, "#5a5a62"], [20, 122, "#3a3a41"]].map(([x, y, c]) => `<g><rect x="${x}" y="${y}" width="78" height="26" fill="${c}"/><path d="M${x + 12} ${y + 26}L${x + 12} ${y + 34}L${x + 22} ${y + 26}Z" fill="${c}"/><text x="${x + 8}" y="${y + 17}" ${M} font-size="9" fill="${c === "#ecebe8" ? "#0b0b0c" : "#ecebe8"}">DEMO</text></g>`).join("")}
+      ${arrow(120, 96)}
+      <rect x="166" y="40" width="138" height="116" fill="none" stroke="#3a3a41"/>
+      <rect x="176" y="132" width="52" height="8" fill="#5a5a62"/><rect x="240" y="112" width="54" height="8" fill="#5a5a62"/>
+      <circle cx="200" cy="120" r="10" fill="#e0201b"/>
+      <g class="ca-shift" fill="#ecebe8"><path d="M246 60L254 74L238 74Z"/><path d="M276 78L284 92L268 92Z"/><rect x="222" y="72" width="10" height="10"/></g>
+      <text x="16" y="22" ${M} font-size="9" fill="#93939a">FICTIONAL COMMENTS / GAME</text>`,
+    "live-support-client-ui": `
+      <rect x="20" y="34" width="280" height="132" fill="#16161a" stroke="#3a3a41"/>
+      <rect x="20" y="34" width="280" height="14" fill="#1f1f24"/><rect x="28" y="39" width="5" height="5" fill="#e0201b"/><rect x="37" y="39" width="5" height="5" fill="#5a5a62"/>
+      <rect x="32" y="58" width="150" height="96" fill="#0b0b0c" stroke="#3a3a41"/>
+      <rect x="92" y="88" width="30" height="30" fill="#ecebe8"/><line x1="107" y1="66" x2="107" y2="146" stroke="#e0201b" stroke-dasharray="3 3"/><line x1="40" y1="103" x2="174" y2="103" stroke="#e0201b" stroke-dasharray="3 3"/>
+      ${[0, 1, 2].map(k => `<line x1="196" y1="${68 + k * 18}" x2="288" y2="${68 + k * 18}" stroke="#3a3a41" stroke-width="3"/><rect class="${k === 1 ? "ca-shift" : ""}" x="${214 + k * 22}" y="${63 + k * 18}" width="8" height="10" fill="${k === 1 ? "#e0201b" : "#ecebe8"}"/>`).join("")}
+      <rect x="196" y="122" width="42" height="14" fill="#ecebe8"/><rect x="246" y="122" width="42" height="14" fill="none" stroke="#5a5a62"/><rect x="196" y="140" width="92" height="8" fill="#3a3a41"/>
+      <text x="16" y="22" ${M} font-size="9" fill="#93939a">DEMO PANEL (FICTIONAL)</text>`,
+    "live-support-materials": `
+      ${[0, 1, 2].map(k => `<g transform="translate(24 ${40 + k * 40})"><rect width="56" height="32" fill="${k === 0 ? "#ecebe8" : "#3a3a41"}"/>${k === 0 ? `<circle cx="16" cy="16" r="8" fill="#e0201b"/>` : k === 1 ? `<path d="M10 24L18 8L26 24Z" fill="#ecebe8"/>` : `<rect x="9" y="9" width="14" height="14" fill="#5a5a62"/>`}<text x="32" y="20" ${M} font-size="7" fill="${k === 0 ? "#0b0b0c" : "#93939a"}">DEMO</text></g>`).join("")}
+      ${arrow(96, 96)}
+      <path d="M150 150L300 150L280 112L170 112Z" fill="#1b1b20" stroke="#3a3a41"/>
+      <line x1="170" y1="112" x2="170" y2="40" stroke="#26262b"/><line x1="280" y1="112" x2="280" y2="40" stroke="#26262b"/><line x1="170" y1="40" x2="280" y2="40" stroke="#26262b"/>
+      <path d="M222 40L196 124L252 124Z" fill="#ecebe8" opacity=".08"/>
+      <g class="ca-shift"><circle cx="222" cy="116" r="9" fill="#e0201b"/></g><path d="M254 128L262 112L270 128Z" fill="#ecebe8"/><rect x="186" y="118" width="12" height="12" fill="#5a5a62"/>
+      <text x="16" y="22" ${M} font-size="9" fill="#93939a">FICTIONAL STAGE</text>`
+  };
+  const conceptArt = id => SVG[id] ? `
+    <figure class="ca">
+      <div class="ca-art"><svg viewBox="0 0 320 180" aria-hidden="true" focusable="false"><rect width="320" height="180" fill="#111113"/>${SVG[id]}${demoTag}</svg></div>
+      <figcaption class="ca-cap"><span lang="ja">イメージ図・実際のシステム画面ではありません</span><span lang="en">Concept illustration — not an actual system screen</span><span lang="zh-CN">概念示意图，并非实际系统界面</span></figcaption>
+    </figure>` : "";
   const techCard = (t, i) => `
     <a class="tcard" href="#/tech/${t.id}">
       <span class="tc-top"><span>CASE ${pad(i + 1)}</span><span>${esc(t.kind)}</span></span>
@@ -110,7 +177,7 @@
   const recentCard = (r, i) => `
     <a class="rc-card" href="#/recent/${r.id}">
       <span class="tc-top"><span>RECENT ${pad(i + 1)}</span><span>${esc(r.kind)}</span></span>
-      ${r.yt ? thumbHTML(r) : plate(r.plate || r.kind)}
+      ${r.yt ? thumbHTML(r) : `<div class="ca-thumb">${conceptArt(r.id)}</div>`}
       <h3>${esc(r.title)}</h3>
       <p>${esc(r.text)}</p>
       <span class="tc-go">${esc(T.viewDetail)}</span>
@@ -198,7 +265,7 @@
             </dl>
           </div>
         </div>
-        <div class="hero-strip" aria-hidden="true"><ul class="wrap"><li>SCENE</li><li>TIMELINE</li><li>GIMMICK</li><li>LIGHTING</li><li>VFX</li><li>RECORDING</li><li>RENDERING</li><li>TOOLS</li></ul></div>
+        <div class="hero-strip" aria-hidden="true"><ul class="wrap"><li>RECORDING SETUP</li><li>TIMELINE</li><li>GIMMICK</li><li>LIGHTING</li><li>VFX</li><li>RECORDING</li><li>RENDERING</li><li>TOOLS</li></ul></div>
       </section>
 
       <section class="sec" aria-labelledby="rc-h" style="border-top:0">
@@ -334,7 +401,7 @@
         <div class="detail">
           <div>${videoHTML(w)}</div>
           <aside class="side">
-            <dl class="kv"><dt>${esc(T.setupK)}</dt><dd>${esc(T.setupV)}</dd>${w.officialTitle ? `<dt>${esc(T.officialK)}</dt><dd${jaAttr(w.officialTitle)}>${esc(w.officialTitle)}</dd>` : ""}${w.publisher ? `<dt>${esc(T.publisherK)}</dt><dd>${esc(w.publisher)}</dd>` : ""}${w.published ? `<dt>${esc(T.publishedK)}</dt><dd>${esc(w.published)}</dd>` : ""}</dl>
+            <dl class="kv"><dt>${esc(T.setupK)}</dt><dd>${esc(T.setupV)}</dd>${MOCAP_SETUP_IDS.has(w.id) ? `<dt>${esc(T.mocapK)}</dt><dd>${esc(T.mocapV)}</dd>` : ""}${w.officialTitle ? `<dt>${esc(T.officialK)}</dt><dd${jaAttr(w.officialTitle)}>${esc(w.officialTitle)}</dd>` : ""}${w.publisher ? `<dt>${esc(T.publisherK)}</dt><dd>${esc(w.publisher)}</dd>` : ""}${w.published ? `<dt>${esc(T.publishedK)}</dt><dd>${esc(w.published)}</dd>` : ""}</dl>
             <div><p class="dl-h">${esc(T.rolesH)}</p><ol class="roles">${w.roles.map(r => `<li>${esc(r)}</li>`).join("")}</ol></div>
             <div><p class="dl-h">${esc(T.tagsH)}</p><div class="tagl">${w.tags.map(t => `<a href="#/works?tag=${t}">${esc(tagName(t))}</a>`).join("")}</div></div>
             <a class="more" href="https://www.youtube.com/watch?v=${esc(w.yt)}" target="_blank" rel="noopener">${esc(T.watchYT)}</a>
@@ -376,8 +443,9 @@
       <div class="wrap">
         <div class="detail">
           <div style="display:flex;flex-direction:column;gap:32px">
-            ${r.yt ? videoHTML(r) : plate(r.plate || r.kind)}
+            ${r.yt ? videoHTML(r) : conceptArt(r.id)}
             <p class="rc-text">${esc(r.text)}</p>${r.note ? `<p style="color:var(--mute)">${esc(r.note)}</p>` : ""}
+            ${r.yt ? conceptArt(r.id) : ""}
           </div>
           <aside class="side">
             ${r.facts.length ? `<dl class="kv">${r.facts.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>` : ""}
@@ -402,9 +470,16 @@
       </section>
       <section class="wrap" style="padding-bottom:clamp(64px,8vw,112px)">
         ${D.tech.map((t, i) => `
-        <a class="trow" href="#/tech/${t.id}">
+        <a class="trow trow-ca" href="#/tech/${t.id}">
           <span class="idx">${pad(i + 1)}</span>
           <span><h2>${esc(t.name)}</h2><p class="kind">${esc(t.kind)}</p><p>${esc(t.summary)}</p></span>
+          ${conceptArt(t.id)}
+        </a>`).join("")}
+        ${D.recent.map((r, i) => `
+        <a class="trow trow-ca" href="#/recent/${r.id}">
+          <span class="idx">${pad(D.tech.length + i + 1)}</span>
+          <span><span class="x-badge">${esc(T.navRecent)}</span><h2 class="trow-h-long"${jaAttr(r.title)}>${esc(r.title)}</h2><p class="kind">${esc(r.kind)}</p><p>${esc(r.text)}</p></span>
+          ${conceptArt(r.id)}
         </a>`).join("")}
       </section>`
     };
@@ -425,6 +500,7 @@
               ${glH1(t.name, ' style="font-size:clamp(30px,5vw,64px);line-height:1.2"')}
               <p class="lead" style="color:#c9c8c4">${esc(t.summary)}</p>
             </div>
+            ${conceptArt(t.id)}
           </div>
         </div>
       </section>
