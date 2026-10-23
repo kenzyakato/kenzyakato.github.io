@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja" data-motion="full">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KenzyaKato（犬者カト）｜Unity・VTuber 技術制作</title>
+<meta name="description" content="KenzyaKato（犬者カト）のポートフォリオ。Unity・VTuber 技術制作。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Dela+Gothic+One&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=5">
+<link rel="icon" href="assets/avatar.png">
+</head>
+<body>
+<button class="skip" type="button" id="skipBtn" data-i18n="skip">本文へスキップ</button>
+
+<div class="util">
+  <div class="util-in">
+    <div class="lang" role="group" aria-labelledby="langLbl">
+      <span class="lang-k" id="langLbl" data-i18n="langLabel">表示言語</span>
+      <button type="button" data-lang="ja" lang="ja" aria-pressed="true">日本語</button>
+      <button type="button" data-lang="en" lang="en" aria-pressed="false">English</button>
+      <button type="button" data-lang="zh-CN" lang="zh-CN" aria-pressed="false">简体中文</button>
+    </div>
+  </div>
+</div>
+
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="#/" aria-label="KenzyaKato ホーム" data-i18n-aria="homeAria">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-txt"><b>KENZYAKATO</b><small lang="ja">犬者カト</small></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="gnav" aria-label="メニュー" data-i18n-aria="menuAria">
+      <span class="menu-ico" aria-hidden="true"></span><span class="menu-lbl" aria-hidden="true">MENU</span>
+    </button>
+    <nav class="gnav" id="gnav" aria-label="メイン" data-i18n-aria="navAria">
+      <ul>
+        <li><a href="#/" data-nav="home"><i>00</i><span data-i18n="navHome">ホーム</span></a></li>
+        <li><a href="#/recent" data-nav="recent"><i>01</i><span data-i18n="navRecent">最近の制作</span></a></li>
+        <li><a href="#/tech" data-nav="tech"><i>02</i><span data-i18n="navTech">技術ケース</span></a></li>
+        <li><a href="#/works" data-nav="works"><i>03</i><span data-i18n="navWorks">参加作品・制作実績</span></a></li>
+        <li><a href="#/about" data-nav="about"><i>04</i><span data-i18n="navAbout">プロフィール・連絡</span></a></li>
+      </ul>
+      <a class="nav-ch" href="https://www.youtube.com/@kenzyakato3680" target="_blank" rel="noopener"><span data-i18n="channel">個人チャンネル</span><span aria-hidden="true">↗</span></a>
+      <button class="motion-btn" id="motionBtn" type="button" aria-pressed="false" title="アニメーションを減らす">
+        <span class="mb-k">MOTION</span><span class="mb-v">標準</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="app" tabindex="-1"></main>
+
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-id"><b>KENZYAKATO</b><span id="ftrRole">犬者カト ／ Unity・VTuber 技術制作</span></div>
+    <ul class="ftr-links">
+      <li><a href="mailto:kenzyakato@gmail.com">Mail</a></li>
+      <li><a href="https://www.youtube.com/@kenzyakato3680" target="_blank" rel="noopener">YouTube ↗</a></li>
+      <li><a href="https://x.com/kenzyakato" target="_blank" rel="noopener">X ↗</a></li>
+      <li><a id="ftrTiktok" href="https://www.tiktok.com/@kenzyakato" target="_blank" rel="noopener noreferrer" aria-label="TikTok（@kenzyakato・新しいタブで開きます）">TikTok ↗</a></li>
+      <li><a href="https://hanzawanaoki.booth.pm/" target="_blank" rel="noopener">BOOTH ↗</a></li>
+    </ul>
+    <p class="ftr-note" data-i18n="footNote">掲載映像の権利は各権利者に帰属します。</p>
+  </div>
+</footer>
+
+<script src="projects.js?v=5"></script>
+<script src="i18n.js?v=5"></script>
+<script src="app.js?v=5"></script>
+</body>
+</html>
