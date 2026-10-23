@@ -40,7 +40,6 @@
     root.lang = lang;
     $$("[data-i18n]").forEach(el => { el.textContent = T[el.dataset.i18n]; });
     $$("[data-i18n-aria]").forEach(el => el.setAttribute("aria-label", T[el.dataset.i18nAria]));
-    $$("[data-i18n-alt]").forEach(el => { el.alt = T[el.dataset.i18nAlt]; });
     $("#ftrTiktok").setAttribute("aria-label", T.tiktokAria);
     $("#ftrRole").innerHTML = `${O(P.kana)} ／ ${esc(P.role)}`;
     $('meta[name="description"]').setAttribute("content", T.metaDesc);
@@ -192,7 +191,6 @@
           </div>
           <div>
             ${avatarHTML("ID // KZK-01")}
-            <div class="hero-logo"><img src="assets/logo.png" width="1381" height="785" alt="${esc(T.logoAlt)}"></div>
             <dl class="ava-meta">
               <dt>HANDLE</dt><dd>KenzyaKato</dd>
               <dt>FIELD</dt><dd>Unity / VTuber / 3DCG / VR</dd>
