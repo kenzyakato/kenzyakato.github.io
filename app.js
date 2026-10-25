@@ -89,9 +89,10 @@
   /* ---------- partials ---------- */
   const tagName = t => D.tags[t] || t;
   const mediaURL = w => w.externalUrl || `https://www.youtube.com/watch?v=${w.yt}`;
+  const thumbLayers = (base, hud = "") => `${base}<div class="t t-r"></div><div class="t t-w"></div><div class="t-scan"></div>${hud}`;
   const thumbHTML = (w, hud = "") => w.externalUrl ? externalThumb(w) : `
     <div class="thumb" style="--img:url('${thumb(w.yt)}')">
-      <div class="t t-base"></div><div class="t t-r"></div><div class="t t-w"></div><div class="t-scan"></div>${hud}
+      ${thumbLayers('<div class="t t-base"></div>', hud)}
     </div>`;
   const videoHTML = w => w.externalUrl ? `<a class="ext-video" href="${esc(w.externalUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(T.externalVideo)}: ${esc(w.title)}">${externalThumb(w)}<span class="more">${esc(T.watchBilibili)}</span></a>` : `
     <button class="video" type="button" data-yt="${esc(w.yt)}" data-title="${esc(w.title)}" aria-label="${esc(T.videoAria(w.title))}">
@@ -102,8 +103,8 @@
   const glH1 = (text, extra = "") => `<h1 class="h1" tabindex="-1"${jaAttr(text)}${extra}><span class="sr-only">${esc(text)}</span><span class="gl" data-text="${esc(text)}" aria-hidden="true">${esc(text)}</span></h1>`;
   /* 外部動画（Bilibili）のローカルカバー。読み込み失敗時は BILIBILI 字板＋説明。動画は埋め込まない */
   const externalThumb = w => `
-    <div class="ext-thumb${w.cover ? "" : " is-missing"}"${w.cover ? ` style="--img:url('${esc(w.cover)}')"` : ""}>
-      ${w.cover ? `<img class="ext-cover t-base" src="${esc(w.cover)}" alt="" loading="lazy" decoding="async"><span class="t t-r" aria-hidden="true"></span>` : ""}
+    <div class="thumb ext-thumb${w.cover ? "" : " is-missing"}"${w.cover ? ` style="--img:url('${esc(w.cover)}');--thumb-fit:contain"` : ""}>
+      ${w.cover ? thumbLayers(`<img class="ext-cover t-base" src="${esc(w.cover)}" alt="" loading="lazy" decoding="async">`) : ""}
       <div class="ext-fallback">${plate("BILIBILI")}<p class="ext-miss">${esc(T.coverMissing)}</p></div>
     </div>`;
   document.addEventListener("load", e => {

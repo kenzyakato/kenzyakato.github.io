@@ -174,7 +174,7 @@ html[lang="en"] :is(.h1,.h2,.chan h2,.tc-name,.trow h2,.sc-info h3){hyphens:auto
 
 /* thumbnails w/ glitch layers */
 .thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000}
-.thumb .t{position:absolute;inset:0;background:var(--img) center/cover no-repeat}
+.thumb .t{position:absolute;inset:0;background:var(--img) center/var(--thumb-fit,cover) no-repeat}
 .thumb .t-r,.thumb .t-w{opacity:0;mix-blend-mode:screen}
 .thumb .t-r{filter:grayscale(1) brightness(.9) sepia(1) saturate(9) hue-rotate(-42deg)}
 .thumb .t-w{filter:grayscale(1) contrast(2)}
@@ -467,9 +467,8 @@ html[lang="en"] .tech-hero.research .h1{hyphens:manual}
 .ext-video:hover .ext-thumb,.wcard:hover .ext-thumb{border-color:var(--red)}
 
 /* External cover: reuse the existing card glitch, with the original image fit. */
-.ext-thumb .t{position:absolute;inset:0;background:var(--img) center/contain no-repeat;pointer-events:none;display:none}
-.ext-thumb.is-loaded .t{display:block}
-.ext-thumb .t-r{opacity:0;mix-blend-mode:screen;filter:grayscale(1) brightness(.9) sepia(1) saturate(9) hue-rotate(-42deg)}
+.ext-thumb .t{pointer-events:none}
+.ext-thumb:not(.is-loaded) :is(.t,.t-scan){display:none}
 .ext-video:focus-visible .ext-thumb,.wcard:focus-visible .ext-thumb{border-color:var(--red)}
 .ext-video:focus-visible .ext-cover{animation:hvBase .4s steps(5,end)}
 .ext-video:focus-visible .t-r{animation:swR .4s steps(5,end)}
