@@ -102,8 +102,8 @@
   const glH1 = (text, extra = "") => `<h1 class="h1" tabindex="-1"${jaAttr(text)}${extra}><span class="sr-only">${esc(text)}</span><span class="gl" data-text="${esc(text)}" aria-hidden="true">${esc(text)}</span></h1>`;
   /* 外部動画（Bilibili）のローカルカバー。読み込み失敗時は BILIBILI 字板＋説明。動画は埋め込まない */
   const externalThumb = w => `
-    <div class="ext-thumb${w.cover ? "" : " is-missing"}">
-      ${w.cover ? `<img class="ext-cover" src="${esc(w.cover)}" alt="" loading="lazy" decoding="async">` : ""}
+    <div class="ext-thumb${w.cover ? "" : " is-missing"}"${w.cover ? ` style="--img:url('${esc(w.cover)}')"` : ""}>
+      ${w.cover ? `<img class="ext-cover t-base" src="${esc(w.cover)}" alt="" loading="lazy" decoding="async"><span class="t t-r" aria-hidden="true"></span>` : ""}
       <div class="ext-fallback">${plate("BILIBILI")}<p class="ext-miss">${esc(T.coverMissing)}</p></div>
     </div>`;
   document.addEventListener("load", e => {

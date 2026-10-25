@@ -465,3 +465,18 @@ html[lang="en"] .tech-hero.research .h1{hyphens:manual}
 .ext-thumb.is-missing .ext-fallback{display:block}
 .ext-thumb:not(.is-loaded):not(.is-missing) .ext-cover{opacity:0}
 .ext-video:hover .ext-thumb,.wcard:hover .ext-thumb{border-color:var(--red)}
+
+/* External cover: reuse the existing card glitch, with the original image fit. */
+.ext-thumb .t{position:absolute;inset:0;background:var(--img) center/contain no-repeat;pointer-events:none;display:none}
+.ext-thumb.is-loaded .t{display:block}
+.ext-thumb .t-r{opacity:0;mix-blend-mode:screen;filter:grayscale(1) brightness(.9) sepia(1) saturate(9) hue-rotate(-42deg)}
+.ext-video:focus-visible .ext-thumb,.wcard:focus-visible .ext-thumb{border-color:var(--red)}
+.ext-video:focus-visible .ext-cover{animation:hvBase .4s steps(5,end)}
+.ext-video:focus-visible .t-r{animation:swR .4s steps(5,end)}
+@media (hover:hover){
+ .ext-video:hover .ext-cover{animation:hvBase .4s steps(5,end)}
+ .ext-video:hover .t-r{animation:swR .4s steps(5,end)}
+}
+@media (hover:none){
+ .wcard:hover:not(:focus-visible) .ext-thumb .t-base,.wcard:hover:not(:focus-visible) .ext-thumb .t-r{animation:none}
+}
