@@ -436,7 +436,7 @@ html[lang="zh-CN"] .trow-h-long{font-family:"Noto Sans SC",sans-serif!important;
 html[data-motion="reduce"] .ca-shift,html[data-motion="reduce"] .ca-pulse{animation:none!important;transform:none!important;opacity:1!important}
 
 /* zh-CN headings only: KK Heading SC Black (renamed OFL subset of Noto Serif SC Black; license fonts/OFL-NotoSerif.txt). Loaded only when a zh heading uses it. */
-@font-face{font-family:"KK Heading SC Black";src:url("fonts/kk-heading-sc-black.woff2") format("woff2");font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:"KK Heading SC Black";src:url("fonts/kk-heading-sc-black.woff2?v=restoration-20261024-r2") format("woff2");font-weight:900;font-style:normal;font-display:swap}
 html[lang="zh-CN"] :is(h1,h2,h3):not([lang="ja"]){font-family:"KK Heading SC Black","Noto Sans SC",sans-serif;font-weight:900}
 html[lang="zh-CN"] .trow-h-long:not([lang="ja"]){font-family:"KK Heading SC Black","Noto Sans SC",sans-serif!important;font-weight:900!important}
 html[lang="zh-CN"] :is(h1,h2,h3) [lang="ja"]{font-family:"Noto Sans SC","Zen Kaku Gothic New",sans-serif}
@@ -445,3 +445,23 @@ html[lang="zh-CN"] :is(h1,h2,h3) [lang="ja"]{font-family:"Noto Sans SC","Zen Kak
 /* zh-CN hero: size from the text column width so each of the two lines stays on one line */
 html[lang="zh-CN"] .hero h1{font-size:clamp(40px,16cqi,112px)}
 html[lang="zh-CN"] .hero h1 .ln{white-space:nowrap}
+
+/* Claude Design: scoped external-media and research additions. */
+.ext-video{display:flex;flex-direction:column;gap:14px;color:var(--text)}
+.ext-video:hover .rc-plate span{-webkit-text-stroke-color:var(--red)}
+.ext-video .more{align-self:flex-start}
+.wcard .rc-plate{border:1px solid var(--line)}
+.tech-hero.research{grid-template-columns:minmax(0,1fr)}
+.tech-hero.research .h1{text-wrap:balance}
+html[lang="en"] .research-detail .kv dt{padding-right:16px;overflow-wrap:anywhere}
+html[lang="en"] .tech-hero.research .h1{hyphens:manual}
+
+.ext-thumb{position:relative;aspect-ratio:16/9;background:#000;border:1px solid var(--line);overflow:hidden}
+.ext-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.ext-fallback{position:absolute;inset:0;display:none}
+.ext-fallback .rc-plate{height:100%;aspect-ratio:auto;border:0;align-items:center;justify-content:center;padding:16px 16px 52px}
+.ext-fallback .rc-plate span{font-size:clamp(26px,3vw,44px)}
+.ext-miss{position:absolute;left:12px;right:12px;bottom:12px;margin:0;font-size:12px;line-height:1.6;color:var(--text);text-wrap:pretty}
+.ext-thumb.is-missing .ext-fallback{display:block}
+.ext-thumb:not(.is-loaded):not(.is-missing) .ext-cover{opacity:0}
+.ext-video:hover .ext-thumb,.wcard:hover .ext-thumb{border-color:var(--red)}

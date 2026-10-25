@@ -92,3 +92,81 @@ window.SITE = {
       summary: "収録データの整理を支援するUnity向け制作ツールを制作。" }
   ]
 };
+
+/* Restored public works and academic research; private review draft. */
+window.SITE.works.push(...[
+  {
+    "id": "alleles-the-virtual",
+    "title": "Alleles Project — THE ViRTUAL",
+    "credit": "Alleles Project",
+    "yt": "a3nQg_PWuSE",
+    "officialTitle": "Alleles Project 1st ONE MAN LIVE 「THE ViRTUAL」 #アリルズ",
+    "publisher": "Alleles Project / アリルズプロジェクト",
+    "roles": [
+      "MCパートのトランジション・アニメーション",
+      "オープニングのカメラワーク制作"
+    ],
+    "tags": [
+      "animation",
+      "camera"
+    ],
+    "setupV": "チーム制作（本人担当を記載）"
+  },
+  {
+    "id": "alleles-ai-videos",
+    "title": "Alleles Project — AI Videos",
+    "credit": "Alleles Project",
+    "yt": "NQB2xEnOubE",
+    "officialTitle": "【美少女無罪♡パイレーツ】踊ってみた #モーションキャプチャー #矢野妃菜喜 #3d #キズナアイ",
+    "publisher": "Alleles Project / アリルズプロジェクト",
+    "roles": [
+      "技術提案",
+      "検証",
+      "実現"
+    ],
+    "tags": [
+      "system"
+    ],
+    "setupV": "チーム制作（本人担当を記載）"
+  },
+  {
+    "id": "vket-summer-2022-cn",
+    "title": "Vket Summer 2022 中国向けプロモーション映像",
+    "credit": "Vket Summer 2022",
+    "externalUrl": "https://www.bilibili.com/video/BV1FS4y1x748/",
+    "roles": [
+      "企画・企画書・台本の作成",
+      "出演者・声優の募集",
+      "VR内撮影・ディレクション",
+      "VRCSDKを用いた出演用アバター・小道具の制作",
+      "声優収録",
+      "動画編集",
+      "サムネイル制作"
+    ],
+    "tags": [
+      "planning",
+      "camera",
+      "character",
+      "record",
+      "edit"
+    ],
+    "setupV": "出演者の協力を得た共同制作",
+    "note": "出演者の協力を得て、上記の企画・制作工程を担当。全工程を一人で完結した作品としては紹介していません。",
+    "cover": "assets/vket-summer-2022-cover.jpg"
+  }
+]);
+window.SITE.tech.push({
+  "id": "avatar-recommendation-system",
+  "name": "嗜好を反映した類似アバター推薦システムの研究",
+  "kind": "修士研究 / Unity・Python・C#・OpenXR",
+  "summary": "ユーザの嗜好を反映する類似アバター推薦システムを研究。研究室で助言を受けながら、テーマ設定、関連研究調査、手法構築、実装、実験と結果の収集を主に担当。",
+  "research": true,
+  "yt": "RoPifq4fKbo",
+  "repository": "https://github.com/kenzyakato/AvatarRecommendationSystem",
+  "environment": "Unity / Python / C# / OpenXR"
+});
+Object.assign(window.SITE.tags,{
+  "animation": "アニメーション",
+  "planning": "企画・制作進行",
+  "edit": "編集"
+});

@@ -88,20 +88,37 @@
 
   /* ---------- partials ---------- */
   const tagName = t => D.tags[t] || t;
-  const thumbHTML = (w, hud = "") => `
+  const mediaURL = w => w.externalUrl || `https://www.youtube.com/watch?v=${w.yt}`;
+  const thumbHTML = (w, hud = "") => w.externalUrl ? externalThumb(w) : `
     <div class="thumb" style="--img:url('${thumb(w.yt)}')">
       <div class="t t-base"></div><div class="t t-r"></div><div class="t t-w"></div><div class="t-scan"></div>${hud}
     </div>`;
-  const videoHTML = w => `
+  const videoHTML = w => w.externalUrl ? `<a class="ext-video" href="${esc(w.externalUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(T.externalVideo)}: ${esc(w.title)}">${externalThumb(w)}<span class="more">${esc(T.watchBilibili)}</span></a>` : `
     <button class="video" type="button" data-yt="${esc(w.yt)}" data-title="${esc(w.title)}" aria-label="${esc(T.videoAria(w.title))}">
       <img src="${thumb(w.yt)}" alt="" loading="lazy">
       <span class="play" aria-hidden="true"></span>
       <span class="vnote">${esc(T.videoNote)}</span>
     </button>`;
   const glH1 = (text, extra = "") => `<h1 class="h1" tabindex="-1"${jaAttr(text)}${extra}><span class="sr-only">${esc(text)}</span><span class="gl" data-text="${esc(text)}" aria-hidden="true">${esc(text)}</span></h1>`;
+  /* 外部動画（Bilibili）のローカルカバー。読み込み失敗時は BILIBILI 字板＋説明。動画は埋め込まない */
+  const externalThumb = w => `
+    <div class="ext-thumb${w.cover ? "" : " is-missing"}">
+      ${w.cover ? `<img class="ext-cover" src="${esc(w.cover)}" alt="" loading="lazy" decoding="async">` : ""}
+      <div class="ext-fallback">${plate("BILIBILI")}<p class="ext-miss">${esc(T.coverMissing)}</p></div>
+    </div>`;
+  document.addEventListener("load", e => {
+    const img = e.target; if (!(img instanceof HTMLImageElement) || !img.classList.contains("ext-cover")) return;
+    img.closest(".ext-thumb")?.classList.add("is-loaded");
+  }, true);
+  document.addEventListener("error", e => {
+    const img = e.target; if (!(img instanceof HTMLImageElement) || !img.classList.contains("ext-cover")) return;
+    const box = img.closest(".ext-thumb"); if (!box) return;
+    box.classList.remove("is-loaded"); box.classList.add("is-missing"); img.remove();
+  }, true);
+
   const MOCAP_SETUP_IDS = new Set(["lady-crazy", "bubblin", "bubblin-teaser", "v", "kiss-kitsune", "namida"]);
   const plate = name => `<div class="rc-plate" aria-hidden="true"><span>${esc(name)}</span></div>`;
-  /* PRIVATE PREVIEW — 原創の概念イメージ（架空。実際の画面・構成・データではない） */
+  /* Concept illustrations: illustrative only, not actual system screens. */
   const M = 'font-family="IBM Plex Mono,monospace"';
   const demoTag = `<rect x="262" y="10" width="48" height="16" fill="#e0201b"/><text x="286" y="22" ${M} font-size="9" font-weight="600" fill="#0b0b0c" text-anchor="middle">DEMO</text>`;
   const arrow = (x, y) => `<g class="ca-pulse"><line x1="${x}" y1="${y}" x2="${x + 22}" y2="${y}" stroke="#e0201b" stroke-width="2"/><path d="M${x + 22} ${y - 5}L${x + 30} ${y}L${x + 22} ${y + 5}Z" fill="#e0201b"/></g>`;
@@ -399,12 +416,12 @@
       </section>
       <div class="wrap">
         <div class="detail">
-          <div>${videoHTML(w)}</div>
+          <div style="display:flex;flex-direction:column;gap:20px">${videoHTML(w)}${w.note ? `<p style="color:var(--mute)">${esc(w.note)}</p>` : ""}</div>
           <aside class="side">
-            <dl class="kv"><dt>${esc(T.setupK)}</dt><dd>${esc(T.setupV)}</dd>${MOCAP_SETUP_IDS.has(w.id) ? `<dt>${esc(T.mocapK)}</dt><dd>${esc(T.mocapV)}</dd>` : ""}${w.officialTitle ? `<dt>${esc(T.officialK)}</dt><dd${jaAttr(w.officialTitle)}>${esc(w.officialTitle)}</dd>` : ""}${w.publisher ? `<dt>${esc(T.publisherK)}</dt><dd>${esc(w.publisher)}</dd>` : ""}${w.published ? `<dt>${esc(T.publishedK)}</dt><dd>${esc(w.published)}</dd>` : ""}</dl>
+            <dl class="kv"><dt>${esc(T.setupK)}</dt><dd>${esc(w.setupV || T.setupV)}</dd>${MOCAP_SETUP_IDS.has(w.id) ? `<dt>${esc(T.mocapK)}</dt><dd>${esc(T.mocapV)}</dd>` : ""}${w.officialTitle ? `<dt>${esc(T.officialK)}</dt><dd${jaAttr(w.officialTitle)}>${esc(w.officialTitle)}</dd>` : ""}${w.publisher ? `<dt>${esc(T.publisherK)}</dt><dd>${esc(w.publisher)}</dd>` : ""}${w.published ? `<dt>${esc(T.publishedK)}</dt><dd>${esc(w.published)}</dd>` : ""}</dl>
             <div><p class="dl-h">${esc(T.rolesH)}</p><ol class="roles">${w.roles.map(r => `<li>${esc(r)}</li>`).join("")}</ol></div>
             <div><p class="dl-h">${esc(T.tagsH)}</p><div class="tagl">${w.tags.map(t => `<a href="#/works?tag=${t}">${esc(tagName(t))}</a>`).join("")}</div></div>
-            <a class="more" href="https://www.youtube.com/watch?v=${esc(w.yt)}" target="_blank" rel="noopener">${esc(T.watchYT)}</a>
+            <a class="more" href="${esc(mediaURL(w))}" target="_blank" rel="noopener noreferrer">${esc(w.externalUrl ? T.watchBilibili : T.watchYT)}</a>
           </aside>
         </div>
         ${pn(T.pnWorks, "works", prev, next)}
@@ -470,7 +487,7 @@
       </section>
       <section class="wrap" style="padding-bottom:clamp(64px,8vw,112px)">
         ${D.tech.map((t, i) => `
-        <a class="trow trow-ca" href="#/tech/${t.id}">
+        <a class="trow${SVG[t.id] ? " trow-ca" : ""}" href="#/tech/${t.id}">
           <span class="idx">${pad(i + 1)}</span>
           <span><h2>${esc(t.name)}</h2><p class="kind">${esc(t.kind)}</p><p>${esc(t.summary)}</p></span>
           ${conceptArt(t.id)}
@@ -494,7 +511,7 @@
       <section class="page-head">
         <div class="wrap">
           ${crumbs("#/tech", T.techH, t.name)}
-          <div class="tech-hero">
+          <div class="tech-hero${t.research ? " research" : ""}">
             <div>
               <p class="kicker">CASE ${pad(i + 1)} — ${esc(t.kind)}</p>
               ${glH1(t.name, ' style="font-size:clamp(30px,5vw,64px);line-height:1.2"')}
@@ -505,6 +522,7 @@
         </div>
       </section>
       <div class="wrap" style="display:flex;flex-direction:column;gap:clamp(48px,6vw,80px);padding-bottom:clamp(48px,6vw,80px)">
+        ${t.research ? `<section class="research-detail" aria-label="${esc(T.researchK)}"><div class="detail"><div>${videoHTML({...t,title:t.name})}</div><aside class="side"><dl class="kv"><dt>${esc(T.researchK)}</dt><dd>${esc(t.kind)}</dd><dt>${esc(T.environmentK)}</dt><dd>${esc(t.environment)}</dd></dl><a class="more" href="${esc(t.repository)}" target="_blank" rel="noopener noreferrer">${esc(T.repoLink)}</a></aside></div></section>` : ""}
         ${pn(T.pnTech, "tech", prev, next, "name").replace('class="pn"', 'class="pn" style="margin:0"')}
       </div>`
     };

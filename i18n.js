@@ -196,3 +196,130 @@ window.I18N = {
     }
   }
 };
+
+/* Localized restoration draft; existing responsibilities retained. */
+Object.assign(window.I18N.ui["ja"],{
+  "watchBilibili": "Bilibili で見る ↗",
+  "externalVideo": "Bilibili で公開映像を開く（新しいタブ）",
+  "repoLink": "公開リポジトリ ↗",
+  "environmentK": "制作環境",
+  "researchK": "研究プロジェクト",
+  "worksNote": "企業在籍中の参加作品と、共同制作した公開作品を掲載しています。",
+  "worksLead": "企業在籍中の参加作品と、共同制作した公開作品を掲載しています。各作品の本人担当範囲を記載し、担当工程で絞り込めます。",
+  "techLead": "制作支援ツールと、公開している研究プロジェクトの担当概要。",
+  "coverMissing": "サムネイルを表示できません。Bilibili で動画を開けます。"
+});
+Object.assign(window.I18N.ui["en"],{
+  "watchBilibili": "Watch on Bilibili ↗",
+  "externalVideo": "Open the public video on Bilibili (new tab)",
+  "repoLink": "Public repository ↗",
+  "environmentK": "Development environment",
+  "researchK": "Research project",
+  "worksNote": "This section covers team work I contributed to while employed at a company, and public works made in collaboration with others.",
+  "worksLead": "This section covers team work I contributed to while employed at a company, and public works made in collaboration with others. Each entry lists my own roles, and you can filter by production area.",
+  "techLead": "An overview of my roles in production support tools and a publicly documented research project.",
+  "coverMissing": "Cover unavailable. You can still open the video on Bilibili."
+});
+Object.assign(window.I18N.content["en"].works,{
+  "alleles-the-virtual": {
+    "title": "Alleles Project — THE ViRTUAL",
+    "credit": "Alleles Project",
+    "roles": [
+      "Transition animations for the MC segments",
+      "Opening camera work"
+    ],
+    "setupV": "Team production (my roles are listed)"
+  },
+  "alleles-ai-videos": {
+    "title": "Alleles Project — AI Videos",
+    "credit": "Alleles Project",
+    "roles": [
+      "Technical proposal",
+      "Validation",
+      "Implementation"
+    ],
+    "setupV": "Team production (my roles are listed)"
+  },
+  "vket-summer-2022-cn": {
+    "title": "Vket Summer 2022 promotional video for Chinese audiences",
+    "credit": "Vket Summer 2022",
+    "roles": [
+      "Planning, proposal and script writing",
+      "Recruiting performers and voice actors",
+      "Filming and direction in VR",
+      "Creating performance avatars and props with VRCSDK",
+      "Voice recording",
+      "Video editing",
+      "Thumbnail production"
+    ],
+    "setupV": "Collaborative production with the performers' help",
+    "note": "With the performers' help, I handled the planning and production tasks listed above. It is not presented as a work I completed entirely on my own."
+  }
+});
+Object.assign(window.I18N.content["en"].tags,{
+  "animation": "Animation",
+  "planning": "Planning & coordination",
+  "edit": "Editing"
+});
+window.I18N.content["en"].tech["avatar-recommendation-system"]={
+  "name": "Research on a preference-based similar-avatar recommendation system",
+  "kind": "Master's research / Unity・Python・C#・OpenXR",
+  "summary": "Researched a similar-avatar recommendation system that reflects user preferences. With guidance from my lab, I was mainly responsible for setting the topic, reviewing related work, developing the method, implementation, and running experiments and collecting results."
+};
+Object.assign(window.I18N.ui["zh-CN"],{
+  "watchBilibili": "在 Bilibili 观看 ↗",
+  "externalVideo": "在新标签页打开 Bilibili 公开影片",
+  "repoLink": "公开代码仓库 ↗",
+  "environmentK": "开发环境",
+  "researchK": "研究项目",
+  "worksNote": "此处收录本人在企业任职期间参与的团队作品，以及与他人合作完成的公开作品。",
+  "worksLead": "此处收录本人在企业任职期间参与的团队作品，以及与他人合作完成的公开作品。各作品均注明本人担当，可按担当工序筛选。",
+  "techLead": "制作支持工具与公开研究项目的本人担当概要。",
+  "coverMissing": "封面暂不可用，可打开 Bilibili 视频。"
+});
+Object.assign(window.I18N.content["zh-CN"].works,{
+  "alleles-the-virtual": {
+    "title": "Alleles Project — THE ViRTUAL",
+    "credit": "Alleles Project",
+    "roles": [
+      "MC 环节转场动画",
+      "开场运镜制作"
+    ],
+    "setupV": "团队制作（列明本人担当）"
+  },
+  "alleles-ai-videos": {
+    "title": "Alleles Project — AI Videos",
+    "credit": "Alleles Project",
+    "roles": [
+      "技术提案",
+      "验证",
+      "实现"
+    ],
+    "setupV": "团队制作（列明本人担当）"
+  },
+  "vket-summer-2022-cn": {
+    "title": "Vket Summer 2022 面向中文观众的宣传片",
+    "credit": "Vket Summer 2022",
+    "roles": [
+      "企划、企划书与台本编写",
+      "招募出演者与配音演员",
+      "VR 内拍摄与导演",
+      "使用 VRCSDK 制作出演用虚拟形象与道具",
+      "配音收录",
+      "视频剪辑",
+      "缩略图制作"
+    ],
+    "setupV": "在出演者协助下合作制作",
+    "note": "在出演者协助下负责上述企划与制作工序，并非所有环节均由本人独自完成。"
+  }
+});
+Object.assign(window.I18N.content["zh-CN"].tags,{
+  "animation": "动画",
+  "planning": "企划与制作统筹",
+  "edit": "剪辑"
+});
+window.I18N.content["zh-CN"].tech["avatar-recommendation-system"]={
+  "name": "基于用户偏好的相似虚拟形象推荐系统研究",
+  "kind": "硕士研究 / Unity・Python・C#・OpenXR",
+  "summary": "研究反映用户偏好的相似虚拟形象推荐系统。在研究室指导与建议下，主要负责课题设定、相关研究调查、方法构建、实现、实验与结果收集。"
+};
